@@ -1,0 +1,322 @@
+/*
+Estilos Gerais: O body tem uma fonte definida e uma cor de fundo escura. O uso do box-sizing garante que as larguras e alturas dos elementos considerem o padding e a border.
+
+Estrutura da Aplicação: A classe .weather-app define o layout principal da aplicação, com uma imagem de fundo que cobre todo o espaço e um efeito de sobreposição.
+
+Containers e Flexbox: O uso de flexbox nos containers ajuda a organizar os elementos de maneira responsiva e centralizada.
+
+Painéis e Formulários: O painel à direita é projetado com um fundo semi-transparente e permite rolagem vertical. Estilos para o formulário e o botão de envio proporcionam interatividade.
+
+Responsividade: Media queries ajustam o layout em telas menores, tornando a aplicação mais amigável em dispositivos móveis.
+*/
+
+/* Estilos gerais do body */
+body {
+    margin: 0;
+    /* Remove margens padrão */
+    font-family: 'Rubik', sans-serif;
+    /* Define a fonte da aplicação */
+    background: #111;
+    /* Cor de fundo escura */
+}
+
+/* Aplica box-sizing para todos os elementos */
+* {
+    box-sizing: border-box;
+    /* Faz com que paddings e borders sejam incluídos nas larguras e alturas */
+}
+
+/* Define peso da fonte para títulos */
+h1,
+h3 {
+    font-weight: 400;
+    /* Peso da fonte leve para títulos */
+}
+
+/* Estilos da aplicação de clima */
+.weather-app {
+    min-height: 100vh;
+    /* Altura mínima igual à altura da janela de visualização */
+    background-image: url(./images/day/clear.jpg);
+    /* Imagem de fundo padrão */
+    background-position: center;
+    /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat;
+    /* Não repete a imagem de fundo */
+    background-size: cover;
+    /* Cobre todo o espaço disponível */
+    color: #fff;
+    /* Cor do texto */
+    position: relative;
+    /* Posicionamento relativo para elementos filhos */
+    transition: 500ms;
+    /* Transição suave para mudanças de estilo */
+    opacity: 1;
+    /* Opacidade padrão */
+}
+
+/* Camada de sobreposição escura */
+.weather-app::before {
+    content: "";
+    /* Necessário para criar um pseudo-elemento */
+    position: absolute;
+    /* Posiciona em relação ao elemento pai */
+    top: 0;
+    /* Alinha ao topo */
+    left: 0;
+    /* Alinha à esquerda */
+    width: 100%;
+    /* Largura total */
+    height: 100%;
+    /* Altura total */
+    background: rgba(0, 0, 0, 0.3);
+    /* Fundo semi-transparente */
+    z-index: 0;
+    /* Abaixo de outros elementos */
+}
+
+/* Container da aplicação */
+.container {
+    position: absolute;
+    /* Posiciona em relação ao elemento pai */
+    top: 0;
+    /* Alinha ao topo */
+    left: 0;
+    /* Alinha à esquerda */
+    width: 100%;
+    /* Largura total */
+    height: 100%;
+    /* Altura total */
+    display: flex;
+    /* Usando flexbox para layout */
+    justify-content: space-between;
+    /* Espaço entre os itens */
+    align-items: flex-start;
+    /* Alinha os itens no topo */
+    flex-direction: column;
+    /* Direção dos itens é vertical */
+    padding: 2em 3em 4em 3em;
+    /* Espaçamento interno */
+}
+
+/* Estilos para divs dentro do container */
+.container>div {
+    display: flex;
+    /* Usando flexbox */
+    justify-content: center;
+    /* Centraliza itens */
+    align-items: center;
+    /* Alinha itens verticalmente */
+}
+
+/* Estilos para os elementos de tempo, temperatura e clima */
+.city-time,
+.temp,
+.weather {
+    margin: 0 1em;
+    /* Margem horizontal */
+}
+
+/* Estilos específicos para o título da cidade e hora */
+.city-time h1 {
+    margin: 0;
+    /* Remove margens */
+    margin-bottom: 0.2em;
+    /* Margem inferior */
+    font-size: 3em;
+    /* Tamanho da fonte maior */
+}
+
+/* Estilos para a temperatura */
+.temp {
+    font-size: 7em;
+    /* Tamanho da fonte muito grande */
+    margin: 0;
+    /* Remove margens */
+}
+
+/* Estilos para a imagem do clima */
+.weather img {
+    display: block;
+    /* Exibe como bloco */
+    margin: 0.5em 0;
+    /* Margens verticais */
+}
+
+/* Estilos para o painel lateral */
+.panel {
+    position: absolute;
+    /* Posiciona em relação ao elemento pai */
+    width: 40%;
+    /* Largura do painel */
+    height: 100%;
+    /* Altura total */
+    top: 0;
+    /* Alinha ao topo */
+    right: 0;
+    /* Alinha à direita */
+    background: rgba(110, 110, 110, 0.25);
+    /* Fundo semi-transparente */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    /* Sombra ao redor do painel */
+    backdrop-filter: blur(10px);
+    /* Desfoque de fundo */
+    -webkit-backdrop-filter: blur(10px);
+    /* Suporte para navegadores WebKit */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* Borda clara */
+    z-index: 1;
+    /* Acima da camada de fundo */
+    padding: 3em 2em;
+    /* Espaçamento interno */
+    overflow-Y: scroll;
+    /* Rola verticalmente se necessário */
+}
+
+/* Estilos do formulário no painel */
+.panel form {
+    margin-bottom: 3em;
+    /* Margem inferior do formulário */
+}
+
+/* Estilos do botão de envio */
+.submit {
+    position: absolute;
+    /* Posiciona em relação ao elemento pai */
+    top: 0;
+    /* Alinha ao topo */
+    right: 0;
+    /* Alinha à direita */
+    padding: 1.5em;
+    /* Espaçamento interno */
+    margin: 0;
+    /* Remove margens */
+    border: none;
+    /* Remove borda */
+    outline: none;
+    /* Remove contorno */
+    background: #fa6d1b;
+    /* Cor de fundo laranja */
+    color: #fff;
+    /* Cor do texto branco */
+    cursor: pointer;
+    /* Cursor de mão ao passar o mouse */
+    font-size: 1.2em;
+    /* Tamanho da fonte */
+    transition: 0.4s;
+    /* Transição suave para alterações */
+}
+
+/* Efeito hover no botão de envio */
+.submit:hover {
+    background: #fff !important;
+    /* Cor de fundo branca ao passar o mouse */
+    color: #000;
+    /* Texto preto ao passar o mouse */
+}
+
+/* Estilos do campo de busca */
+.search {
+    background: none;
+    /* Fundo transparente */
+    border: none;
+    /* Remove borda */
+    border-bottom: 1px #ccc solid;
+    /* Borda inferior cinza */
+    padding: 0 1em 0.5em 0;
+    /* Espaçamento interno */
+    width: 80%;
+    /* Largura do campo de busca */
+    color: #fff;
+    /* Cor do texto */
+    font-size: 1.1em;
+    /* Tamanho da fonte */
+}
+
+/* Foco no campo de busca */
+.search:focus {
+    outline: none;
+    /* Remove contorno ao focar */
+}
+
+/* Placeholder do campo de busca */
+.search::placeholder {
+    color: #ccc;
+    /* Cor do texto do placeholder */
+}
+
+/* Estilos para a lista de cidades no painel */
+.panel ul {
+    padding: 0 0 1em 0;
+    /* Espaçamento interno */
+    margin: 2em 0;
+    /* Margem vertical */
+    border-bottom: 1px #ccc solid;
+    /* Borda inferior */
+}
+
+/* Estilos para os itens da lista */
+.panel ul li {
+    color: #ccc;
+    /* Cor do texto */
+    margin: 2.5em 0;
+    /* Margem vertical */
+}
+
+/* Estilos para o cabeçalho da lista de cidades */
+.panel ul h4 {
+    margin: 3em 0;
+    /* Margem vertical */
+}
+
+/* Estilos para os itens de cidade */
+.city {
+    display: block;
+    /* Exibe como bloco */
+    cursor: pointer;
+    /* Cursor de mão ao passar o mouse */
+}
+
+/* Efeito hover nos itens de cidade */
+.city:hover {
+    color: #fff;
+    /* Cor do texto branca ao passar o mouse */
+}
+
+/* Estilos para detalhes do clima */
+.details li {
+    display: flex;
+    /* Usando flexbox */
+    justify-content: space-between;
+    /* Espaço entre os itens */
+    align-items: center;
+    /* Alinha itens verticalmente */
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 800px) {
+
+    .panel,
+    .container {
+        position: relative;
+        /* Relativo em telas pequenas */
+        width: 100%;
+        /* Largura total */
+        top: initial;
+        /* Remove posicionamento fixo */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 12px;
+        /* Reduz tamanho da fonte em telas muito pequenas */
+    }
+}
+
+@media screen and (max-height: 300px) {
+    .weather-app {
+        min-width: 40em;
+        /* Define largura mínima da aplicação */
+    }
+}
