@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que a página seja responsiva -->
+    <title>Tempo</title> <!-- Título da página exibido na aba do navegador -->
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS para estilização -->
+</head>
+
+<body>
+    <div class="weather-app"> <!-- Container principal da aplicação de clima -->
+        <div class="container"> <!-- Container interno para o conteúdo do clima -->
+            <h3 class="brand">O clima</h3> <!-- Cabeçalho da aplicação -->
+            <div>
+                <h1 class="temp">16&#176;</h1> <!-- Exibe a temperatura atual -->
+                <div class="city-time"> <!-- Contém informações da cidade e horário -->
+                    <h1 class="name">São Paulo</h1> <!-- Nome da cidade -->
+                    <small>
+                        <span class="time">06:09</span> <!-- Hora atual -->
+                        <span class="date">
+                            Segunda 28 Out <!-- Data atual -->
+                        </span>
+                    </small>
+                </div>
+                <div class="weather"> <!-- Informações sobre o clima -->
+                    <img src="./icons/day/113.png" class="icon" alt="icon" width="50" height="50" /> <!-- Ícone do clima -->
+                    <span class="condition">Limpo</span> <!-- Condição climática atual -->
+                </div>
+            </div>
+        </div>
+        <div class="panel"> <!-- Painel de busca e informações adicionais -->
+            <form id="locationInput"> <!-- Formulário para entrada de localização -->
+                <input type="text" class="search" placeholder="Buscar Localização" /> <!-- Campo de busca -->
+                <button type="submit" class="submit"> <!-- Botão de envio do formulário -->
+                    <i class="fas fa-search"></i> <!-- Ícone de busca (Font Awesome) -->
+                </button>
+            </form>
+            <ul class="cities"> <!-- Lista de cidades pré-definidas -->
+                <li class="city">São Paulo</li> <!-- Cidade 1 -->
+                <li class="city">Rio de Janeiro</li> <!-- Cidade 2 -->
+                <li class="city">Fortaleza</li> <!-- Cidade 3 -->
+                <li class="city">Curitiba</li> <!-- Cidade 4 -->
+            </ul>
+            <ul class="details"> <!-- Lista de detalhes do clima -->
+                <h4>Detalhes do clima</h4> <!-- Cabeçalho para os detalhes -->
+                <li>
+                    <span>Nublado</span> <!-- Descrição da condição de nuvens -->
+                    <span class="cloud">89%</span> <!-- Percentual de nuvens -->
+                </li>
+                <li>
+                    <span>Humidade</span> <!-- Descrição da umidade -->
+                    <span class="humidity">64%</span> <!-- Percentual de umidade -->
+                </li>
+                <li>
+                    <span>Vento</span> <!-- Descrição da velocidade do vento -->
+                    <span class="wind">8km/h</span> <!-- Velocidade do vento -->
+                </li>
+            </ul>
+        </div>
+    <script src="main.js"></script> <!-- Link para o arquivo JavaScript que contém a lógica da aplicação -->
+</body>
+
+</html>
