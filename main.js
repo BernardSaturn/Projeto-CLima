@@ -77,7 +77,7 @@ function dayOfTheWeek(day, month, year) {
 
 // Função que busca e exibe os dados da API do clima
 function fetchWeatherData() {
-    fetch(`http://api.weatherapi.com/v1/current.json?key=2ea37ed6dac5477e9d6194859242810&q=${cityInput}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=2ea37ed6dac5477e9d6194859242810&q=${cityInput}`)
         .then(response => response.json()) // Converte a resposta em JSON
         .then(data => { // Manipula os dados recebidos da API
             console.log(data); // Exibe os dados no console para depuração
